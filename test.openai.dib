@@ -1,0 +1,32 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"},{"aliases":[],"languageName":"fsharp","name":"fsharp"}]}}
+
+#!fsharp
+
+#r "nuget: OpenAI.Client"
+
+#!fsharp
+
+open OpenAI.Client
+open OpenAI.Chat
+
+#!fsharp
+
+let chatResult = 
+    openAI {
+        endPoint "https://api.openai.com/v1"
+        apiKey "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"
+        chat
+        create {
+            Model = "gpt-3.5-turbo"
+            Messages = [| 
+                { Role="system"; Content = "You are a sarcastic Filipino comedian that only answers in haiku." }
+                { Role="user"; Content = "Tell me what to do on my next Philippine vacation." }
+            |]
+        }
+    }
+
+#!fsharp
+
+printf "%A" chatResult

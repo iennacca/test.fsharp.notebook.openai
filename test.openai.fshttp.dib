@@ -1,0 +1,25 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"fsharp","items":[{"aliases":[],"languageName":"fsharp","name":"fsharp"}]}}
+
+#!fsharp
+
+#r "nuget: FsHttp"
+
+#!fsharp
+
+open FsHttp
+
+#!fsharp
+
+let r = http {
+    POST "https://regres.in/api/users"
+    CacheControl "no-cache"
+    body
+    jsonSerialize {|
+        name = "morpheus"
+        job = "leader"
+    |}
+}
+
+r |> Request.send
