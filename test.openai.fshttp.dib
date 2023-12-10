@@ -10,9 +10,7 @@
 
 open FsHttp
 
-#!fsharp
-
-let r = http {
+http {
     POST "https://regres.in/api/users"
     CacheControl "no-cache"
     body
@@ -20,6 +18,4 @@ let r = http {
         name = "morpheus"
         job = "leader"
     |}
-}
-
-r |> Request.send
+} 
