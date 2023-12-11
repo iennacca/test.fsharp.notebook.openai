@@ -1,8 +1,6 @@
 #r "nuget: FsHttp"
 
 open FsHttp
-open FsHttp.Data
-
 
 http {
     POST "https://regres.in/api/users"

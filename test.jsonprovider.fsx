@@ -9,3 +9,10 @@ FileConfigProvider.writeFile<SecuritySettings> apiSettings
 
 let newSettings = FileConfigProvider.readFile<SecuritySettings>
 printfn "%A" newSettings
+
+#r "nuget:FSharpPlus"
+
+open FSharpPlus
+
+let show r = printfn "%A" r;;
+either show show newSettings
